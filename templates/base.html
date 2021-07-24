@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/projects">Projects</a></li>
+                <li><a href="/about">About me</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    {% block content %}No content{% endblock %}
+
+    <footer>
+        <div class="container">
+            <div class="contact">
+                <p>email: sample.user@example.org</p>
+                <p><a href="http://github.com/antebm"></a>source</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Request
+from fastapi import responses
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -12,7 +13,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
     recent_posts = blogpost_service.read_recent()
     return templates.TemplateResponse("index.html", {"request": request, "recent_posts": recent_posts})

@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-    {% for blogpost in recent_posts %}
+{% extends "base.html" %}
+
+{% block title %} Ante BM {% endblock %}
+{% block content %}
+
+<div class="container blog-recent">
+{% for blogpost in recent_posts %}
 
     <div class="blogpost-summary">
-        <h2>{{ blogpost.title }} </h2>
+        <h2><a href="/posts/{{ blogpost.title }}">{{ blogpost.title }} </a></h2>
         <h3>{{ blogpost.author }} </h3>
         <p>{{ blogpost.content }}</p>
     </div>
     
-    {% endfor %}
-</body>
-</html>
+{% endfor %}
+</div>
+{% endblock %}
