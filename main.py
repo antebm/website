@@ -35,3 +35,6 @@ async def read_post(request: Request, post_id: str):
     blogpost = blogpost_service.read_blogpost(post_id)
     return templates.TemplateResponse("post.html", {"request": request, "blogpost": blogpost})
 
+@app.get("{full_path:path}", response_class=HTMLResponse)
+async def no_content(request: Request, full_path: str):
+    return templates.TemplateResponse("404.html", {"request": request })
