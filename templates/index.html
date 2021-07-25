@@ -7,8 +7,8 @@
 {% for blogpost in recent_posts %}
 
     <div class="blogpost-summary">
-        <h2><a href="/posts/{{ blogpost.title }}">{{ blogpost.title }} </a></h2>
-        <h3>{{ blogpost.author }} </h3>
+        <h3><a href="/posts/{{ blogpost.title }}">{{ blogpost.title }} </a></h3>
+        <h4>{{ blogpost.author }} </h4>
         <p>{{ blogpost.content }}</p>
     </div>
     

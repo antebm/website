@@ -30,10 +30,22 @@ async def index(request: Request):
     recent_posts = blogpost_service.read_recent()
     return templates.TemplateResponse("index.html", {"request": request, "recent_posts": recent_posts})
 
+@app.get("/blog", response_class=HTMLResponse)
+async def index(request: Request):
+    return templates.TemplateResponse("blog.html", {"request": request})
+
 @app.get("/posts/{post_id}", response_class=HTMLResponse)
 async def read_post(request: Request, post_id: str):
     blogpost = blogpost_service.read_blogpost(post_id)
     return templates.TemplateResponse("post.html", {"request": request, "blogpost": blogpost})
+
+@app.get("/projects", response_class=HTMLResponse)
+async def index(request: Request):
+    return templates.TemplateResponse("projects.html", {"request": request})
+
+@app.get("/about", response_class=HTMLResponse)
+async def index(request: Request):
+    return templates.TemplateResponse("about.html", {"request": request})
 
 @app.get("{full_path:path}", response_class=HTMLResponse)
 async def no_content(request: Request, full_path: str):
