@@ -6,7 +6,8 @@ from data.modelbase import SqlAlchemyBase
 class Article(SqlAlchemyBase):
     __tablename__ = 'articles'
 
-    title = Column(String, primary_key=True)
+    id = Column(String, primary_key=True)
+    title = Column(String, index=True, nullable=False)
     created_date = Column(DateTime, default=datetime.now, index=True)
     updated_date = Column(DateTime, default=datetime.now)
     summary = Column(String, nullable=True)
@@ -15,7 +16,7 @@ class Article(SqlAlchemyBase):
     
     # author relationship
     author_id = Column(Integer, ForeignKey("users.id"))
-    author = orm.relation("User")
+    author = orm.relationship("User")
 
     #tags
 

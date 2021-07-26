@@ -1,3 +1,10 @@
+from typing import List
+from sqlalchemy import orm
+import sqlalchemy
+
+from data import db_session
+from data.article import Article
+
 recent_blogposts = [
     {
         "title": "Title 1",
@@ -39,3 +46,16 @@ def read_blogpost(post_id: str):
 
 def read_recent():
     return recent_blogposts
+
+def get_latest_articles(limit=5) -> List[Article]:
+    session = db_session.create_session()
+
+    articles = session.query(Article).\
+        options(sqlalchemy.orm.joinedload(Article)).\
+        order_by(Article.created_date.desc()).\
+            limit(limit).\
+                all()
+
+    session.close()
+
+    return articles

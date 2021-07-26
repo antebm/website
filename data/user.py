@@ -16,5 +16,5 @@ class User(SqlAlchemyBase):
     last_login = Column(DateTime, default=datetime.now, index=True)
 
     # articles relationship
-    articles : List[Article] = orm.relation("Article", Article.created_date.desc(), 
+    articles : List[Article] = orm.relationship("Article", Article.created_date.desc(), 
         back_populates = 'author')

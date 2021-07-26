@@ -3,7 +3,20 @@
 {% block title %} Homepage {% endblock %}
 {% block content %}
 
+<div class="container hero">
+    <div class="intro column">
+        <h2>John Doe</h2>
+        <p>personal webite</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam provident ipsa, voluptates temporibus ullam molestias dolorem sunt ipsam quibusdam necessitatibus. Accusantium vel odio consequatur omnis mollitia dignissimos repudiandae ullam modi doloremque? Impedit asperiores quas veritatis nam, vero in. Voluptate autem, itaque accusantium sint distinctio repellendus vitae voluptatum eum ex earum asperiores voluptatem exercitationem a nihil? Architecto, nemo exercitationem? Vitae, quae.</p>
+    </div>
+
+    <div class="portrait column">
+        <img src="../static/images/avatar.png" alt="portrait">
+    </div>
+</div>
+
 <div class="container blog-recent">
+    <h2>Recent articles</h2>
 {% for blogpost in recent_posts %}
 
     <div class="blogpost-summary">

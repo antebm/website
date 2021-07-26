@@ -46,6 +46,29 @@ nav ul li:hover {
     color: olive;
 }
 
+.hero {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.column {
+    float: left;
+}
+
+.intro {
+    width: 70%;
+}
+
+.portrait {
+    width: 20%;
+}
+.portrait img {
+    max-width: 200px;
+}
+
 a {
     text-decoration: none;
     color: gainsboro;
@@ -61,7 +84,8 @@ footer {
     color: gainsboro;
     margin-bottom: auto;
     overflow: auto;
-    position: fixed;
+    position: relative;
+    margin: auto;
     width: 100%;
     left: 0;
     bottom: 0;
