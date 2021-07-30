@@ -50,11 +50,7 @@ def read_recent():
 def get_latest_articles(limit=5) -> List[Article]:
     session = db_session.create_session()
 
-    articles = session.query(Article).\
-        options(sqlalchemy.orm.joinedload(Article)).\
-        order_by(Article.created_date.desc()).\
-            limit(limit).\
-                all()
+    articles = session.query(Article).all()
 
     session.close()
 
